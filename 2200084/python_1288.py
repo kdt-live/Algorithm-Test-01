@@ -11,4 +11,4 @@ for x in range(1, T+1):
         for i in str(N*n):
             if int(i) not in N_lst:
                 N_lst.append(int(i))
-    print(n)
+    print(f'#{x} {N*n}')
