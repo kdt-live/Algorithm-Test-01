@@ -1,43 +1,28 @@
-# 2. 연월일달력
+# 2. 연월일달력 (못 풀어서 다시 풀기함)
+
+# import sys
+# sys.stdin = open("input.txt", "r")
 
 T = int(input())
-for test_case in range(1, T + 1):
-    nums = input()
-
-    a = nums[-len(nums):-4]
-    b = nums[-4:-2]
-    c = nums[-2:]
-
-    년 = int(nums[-len(nums):-4])
-    월 = int(nums[-4:-2])
-    일 = int(nums[-2:])
-
-    if 년 < 1000:
-        print(a, '/', 월, '/', 일, sep='')
-    elif 월 == 2 and 일 < 29:
-        print(년, '/', 월, '/', 일, sep='')
-    elif 월 == 1 and 일 < 32:
-        print(년, '/', 월, '/', 일, sep='')
-    elif 월 == 3 and 일 < 32:
-        print(년, '/', 월, '/', 일, sep='')
-    elif 월 == 5 and 일 < 32:
-        print(년, '/', 월, '/', 일, sep='')
-    elif 월 == 7 and 일 < 32:
-        print(년, '/', 월, '/', 일, sep='')
-    elif 월 == 8 and 일 < 32:
-        print(년, '/', 월, '/', 일, sep='')
-    elif 월 == 10 and 일 < 32:
-        print(년, '/', 월, '/', 일, sep='')
-    elif 월 == 12 and 일 < 32:
-        print(년, '/', 월, '/', 일, sep='')
-    elif 월 == 4 and 일 < 31:
-        print(년, '/', 월, '/', 일, sep='')
-    elif 월 == 6 and 일 < 31:
-        print(년, '/', 월, '/', 일, sep='')
-    elif 월 == 9 and 일 < 31:
-        print(년, '/', 월, '/', 일, sep='')
-    elif 월 == 11 and 일 < 31:
-        print(년, '/', 월, '/', 일, sep='')
-
+for t in range(1, T + 1):
+    nums = str(input())
+    y = nums[0:4]
+    m = nums[4:6]
+    d = nums[6:8]
+    if int(m) == 2:
+        if 1 <= int(d) <= 28:
+            print(f'#{t} {y}/{m}/{d}')
+        else:
+            print(f'#{t} -1')
+    elif int(m) in [1, 3, 5, 7, 8, 10, 12]:
+        if 1 <= int(d) <= 31:
+            print(f'#{t} {y}/{m}/{d}')
+        else:
+            print(f'#{t} -1')
+    elif int(m) in [4, 5, 9, 11]:
+        if 1 <= int(d) <= 30:
+            print(f'#{t} {y}/{m}/{d}')
+        else:
+            print(f'#{t} -1')
     else:
-        print(-1)
+        print(f'#{t} -1')
